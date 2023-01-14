@@ -27,4 +27,4 @@ class PersonnelSerializer(serializers.ModelSerializer):
         instance = Personnel.objects.create(**validated_data)
         return instance
     def get_days_since_joined(self,obj):
-        return (now() - obj.start)
+        return (timezone.now() - obj.start_date).days
